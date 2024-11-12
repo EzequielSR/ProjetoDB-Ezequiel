@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+<h1>Histórico de Operações</h1>
+<button onclick="novaOperacao()">Nova Operação</button>
+<script>
+    /* 4) Implemente o programa da calculadora utilizando uma instrução
+    switch-case para determinar a operação que deve ser executada,
+    conforme o usuário escolheu no menu de opções. */
+
+    // Resolução:
+    let historico = []
+
+    function calcular(opcao, num1, num2) {
+        let resultado
+        let operacao
+
+        switch (opcao) {
+            case 1:
+                resultado = num1 + num2
+                operacao = `${num1} + ${num2} = ${resultado}`
+                break
+            case 2:
+                resultado = num1 - num2
+                operacao = `${num1} - ${num2} = ${resultado}`
+                break
+            case 3:
+                resultado = num1 * num2
+                operacao = `${num1} * ${num2} = ${resultado}`
+                break
+            case 4:
+                if (num2 !== 0) {
+                    resultado = num1 / num2
+                    operacao = `${num1} / ${num2} = ${resultado}`
+                } else {
+                    return "Erro"
+                }
+                break
+            default:
+                return "Opção inválida!"
+        }
+        historico.push(operacao)
+        atualizarHistorico()
+
+    }
+
+    function atualizarHistorico() {
+        let historicoHTML = historico.join('<br>')
+        document.querySelector('h1').innerHTML = 'Histórico de Operações:<br>' + historicoHTML
+    }
+
+    function novaOperacao() {
+        let opcao = parseInt(prompt("Digite um número de operação:"))
+        let num1 = parseFloat(prompt("Digite o primeiro número: "))
+        let num2 = parseFloat(prompt("Digite o segundo número: "))
+
+        calcular(opcao, num1, num2)
+    }
+
+
+</script>
+</body>
+</html>
