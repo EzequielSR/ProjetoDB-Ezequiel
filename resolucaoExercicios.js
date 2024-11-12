@@ -12,7 +12,7 @@ function verificarIdade(idade) {
 console.log(verificarIdade(17))
 console.log(verificarIdade(20))
 console.log(verificarIdade(18))
-
+console.log("------------------------------")
 // 2) Exercício
 
 let produtos = [
