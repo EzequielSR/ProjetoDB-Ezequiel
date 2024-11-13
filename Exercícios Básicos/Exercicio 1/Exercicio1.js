@@ -1,3 +1,4 @@
+//USAR IF-ELSE NOS EXERCÍCIOS SEGUINTES
 // 1) Definir a idade de uma pessoa e verificar se ela é maior de idade ou não.
 
 //Resolução:
