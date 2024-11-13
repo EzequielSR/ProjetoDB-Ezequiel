@@ -1,4 +1,4 @@
-/*6) Gere 10 números aleatórios entre 0 e 100; mostre todos na tela
+/* 6) Gere 10 números aleatórios entre 0 e 100; mostre todos na tela
 (em uma única linha); identifique o menor e o maior deles. */
 
 // Resolução
