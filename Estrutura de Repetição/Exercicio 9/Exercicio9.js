@@ -1,3 +1,8 @@
+/* 9) Altere o exercício 7 para o algoritmo contar a série Fibonacci até
+um determinado número. Por exemplo, caso declarado o número
+25, o resultado seria: 0, 1, 1, 2, 3, 5, 8, 13, 21. */
+
+
 function fibonacciAteNumero(limite){
     let fibonacci = [0,1]
 
