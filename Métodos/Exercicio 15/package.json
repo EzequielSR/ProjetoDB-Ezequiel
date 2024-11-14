@@ -1,7 +1,7 @@
 {
   "name": "exercicio-15",
   "version": "1.0.0",
-  "main": "Exercicio15.js",
+  "main": "Resolução15.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -86,8 +86,7 @@ class Calculadora {
                             break
                         }
                         break
-                    default:
-                        return "Opção inválida!"
+                    
                 }
                 rl.close()
             })
