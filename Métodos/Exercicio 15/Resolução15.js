@@ -86,7 +86,6 @@ class Calculadora {
                             break
                         }
                         break
-                    
                 }
                 rl.close()
             })
