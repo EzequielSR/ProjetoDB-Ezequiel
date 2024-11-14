@@ -3,9 +3,9 @@ principal. */
 
 // Resolução:
 
-function somaDiagonalPrincipal(matriz){
+function somaDiagonalPrincipal(matriz) {
     let soma = 0
-    for(let i = 0; i < matriz.length; i++){
+    for (let i = 0; i < matriz.length; i++) {
         soma += matriz[i][i]
     }
     return soma
@@ -13,9 +13,9 @@ function somaDiagonalPrincipal(matriz){
 
 // Exemplo de Uso:
 const matriz = [
-    [1,2,3],
-    [3,4,5],
-    [5,6,7]
+    [1, 2, 3],
+    [3, 4, 5],
+    [5, 6, 7]
 ]
 
 console.log(somaDiagonalPrincipal(matriz))
