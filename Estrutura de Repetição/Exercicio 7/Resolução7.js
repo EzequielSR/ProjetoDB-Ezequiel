@@ -7,15 +7,15 @@ o usuário informe o número 9, o resultado seria 0, 1, 1, 2, 3, 5,
 
 // Resolução:
 
-function fibonacci(n){
-    if(n < 0){
+function fibonacci(n) {
+    if (n < 0) {
         return "Informe um número inteiro não negativo"
     }
-    let series = [0,1]
-    for(let i = 2; i <= n; i++){
+    let series = [0, 1]
+    for (let i = 2; i <= n; i++) {
         series.push(series[i - 1] + series[i - 2])
     }
-    return series.slice(0, n+1)
+    return series.slice(0, n + 1)
 }
 
 const numero = 10;

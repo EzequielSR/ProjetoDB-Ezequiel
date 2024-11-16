@@ -6,25 +6,25 @@ as classes Emprestimo, Livro e Pessoa. */
 // Resolução:
 
 class Emprestimo {
-    constructor(pessoa,livro) {
+    constructor(pessoa, livro) {
         this.pessoa = pessoa
         this.livro = livro
         this.dataEmprestimo = new Date()
     }
 
-    realizarEmprestimo(){
-        if(this.livro.emprestar()){
+    realizarEmprestimo() {
+        if (this.livro.emprestar()) {
             this.pessoa.emprestarLivro(this.livro)
             console.log("--------------------")
             console.log(`Empréstimo realizado com sucesso para ${this.pessoa.nome}: ${this.livro.titulo} de ${this.livro.autor}`)
             console.log(`Data do empréstimo: ${this.dataEmprestimo.toLocaleDateString()}`)
-        }else{
+        } else {
             console.log("--------------------")
             console.log(`O livro ${this.livro.titulo} de ${this.livro.autor} não está disponível para empréstimo`)
         }
     }
 
-    realizarDevolucao(){
+    realizarDevolucao() {
         this.livro.devolver()
         this.pessoa.devolverLivro(this.livro.isbn)
         console.log("------------------------")
@@ -38,44 +38,44 @@ class Livro {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
-        this.disponivel= true
+        this.disponivel = true
     }
 
-    emprestar(){
-        if(this.disponivel){
+    emprestar() {
+        if (this.disponivel) {
             this.disponivel = false
             return true
-        }else{
+        } else {
             return false
         }
     }
 
-    devolver(){
+    devolver() {
         this.disponivel = true
     }
 }
-class Pessoa{
+
+class Pessoa {
     constructor(nome) {
         this.nome = nome;
         this.livrosEmprestados = []
     }
 
-    emprestarLivro(livro){
+    emprestarLivro(livro) {
         this.livrosEmprestados.push(livro);
     }
 
-    devolverLivro(isbn){
+    devolverLivro(isbn) {
         this.livrosEmprestados = this.livrosEmprestados.filter(livro => livro.isbn !== isbn)
     }
 }
 
 
-
 // Exemplo de uso:
 
 
-const livro1 = new Livro( "Clean Code", "Robert Cecil Martin", "123456")
-const livro2 = new Livro( "O Senhor dos Anéis", "J.R.R. Tolkien", "654321")
+const livro1 = new Livro("Clean Code", "Robert Cecil Martin", "123456")
+const livro2 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "654321")
 
 const pessoa1 = new Pessoa("Alice", "001")
 

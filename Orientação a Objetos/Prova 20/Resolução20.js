@@ -16,113 +16,113 @@ calcule a menor quantidade de notas. (difícil) */
 
 const readline = require('readline');
 
-class Produto{
-    constructor(id,nome,preco,quantidadeEmEstoque){
+class Produto {
+    constructor(id, nome, preco, quantidadeEmEstoque) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
 
-    reduzirEstoque(quantidade){
-        if(quantidade <= this.quantidadeEmEstoque){
+    reduzirEstoque(quantidade) {
+        if (quantidade <= this.quantidadeEmEstoque) {
             this.quantidadeEmEstoque -= quantidade
             return true
-        }else{
+        } else {
             return false
         }
     }
 
-    exibirDetalhes(){
+    exibirDetalhes() {
         console.log(`Produto: ${this.nome} | Preço: R$${this.preco.toFixed(2)} | Em estoque: ${this.quantidadeEmEstoque}`)
     }
 }
 
-class EStoque{
+class EStoque {
     constructor() {
         this.listaDeProdutos = []
         this.inicializarEstoque()
     }
 
-    inicializarEstoque(){
+    inicializarEstoque() {
         this.listaDeProdutos.push(new Produto(1, "Arroz", 5.50, 50))
         this.listaDeProdutos.push(new Produto(2, "Feijão", 4.75, 30))
         this.listaDeProdutos.push(new Produto(3, "Açúcar", 3.00, 20))
     }
 
-    encontrarProdutoPeloId(id){
+    encontrarProdutoPeloId(id) {
         return this.listaDeProdutos.find(produto => produto.id === id) || null
     }
 
-    mostrarEstoque(){
+    mostrarEstoque() {
         console.log("---------- Estoque ----------")
         this.listaDeProdutos.forEach(produto => produto.exibirDetalhes())
         console.log("-----------------------------")
     }
 }
 
-class Item{
+class Item {
     constructor(produto, quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
         this.valorDoItem = produto.preco * quantidade
     }
 
-    exibirDetalhes(){
+    exibirDetalhes() {
         console.log(`${this.produto.nome} | Quantidade: ${this.quantidade} | Valor do Item: R$${this.valorDoItem.toFixed(2)}`)
     }
 }
 
-class Pedido{
+class Pedido {
     constructor() {
         this.listaDeItens = []
         this.valorTotalDoPedido = 0
     }
 
-    adicionarItem(produto,quantidade){
-        if(produto.reduzirEstoque(quantidade)){
-            const item = new Item(produto,quantidade)
+    adicionarItem(produto, quantidade) {
+        if (produto.reduzirEstoque(quantidade)) {
+            const item = new Item(produto, quantidade)
             this.listaDeItens.push(item)
             this.valorTotalDoPedido += item.valorDoItem
             console.log("\n✅ Produto adicionado com sucesso!")
             return true
-        }else{
+        } else {
             console.log(`❌ Quantidade insuficiente em estoque para o produto: ${produto.nome}`)
             return false
         }
     }
 
-    exibirPedido(){
+    exibirPedido() {
         console.log("---------- Pedido ----------")
         this.listaDeItens.forEach(item => item.exibirDetalhes())
         console.log(`\n🛒 Valor Total do Pedido: R$${this.valorTotalDoPedido.toFixed(2)}`)
         console.log("----------------------------")
     }
 
-    calcularTroco(valorPago){
-        if(valorPago < this.valorTotalDoPedido){
+    calcularTroco(valorPago) {
+        if (valorPago < this.valorTotalDoPedido) {
             console.log("\n❌ Valor insuficiente para completar o pedido.")
             return 0
         }
         return valorPago - this.valorTotalDoPedido
     }
 
-    calcularMenorQuantidadeDeNotas(troco){
-        const notas = [100,50,20,10,5,2,1]
+    calcularMenorQuantidadeDeNotas(troco) {
+        const notas = [100, 50, 20, 10, 5, 2, 1]
         const quantidadeDeNotas = new Array(notas.length).fill(0)
 
         let valorEmInteiro = Math.floor(troco)
 
         for (let i = 0; i < notas.length; i++) {
-            if(valorEmInteiro >= notas[i]){
+            if (valorEmInteiro >= notas[i]) {
                 quantidadeDeNotas[i] = Math.floor(valorEmInteiro / notas[i])
                 valorEmInteiro = valorEmInteiro % notas[i]
             }
         }
 
         console.log(`\n💵 Troco: R$${troco.toFixed(2)}`)
-        notas.forEach((nota,i) => {
-            if(quantidadeDeNotas[i] > 0){
+        notas.forEach((nota, i) => {
+            if (quantidadeDeNotas[i] > 0) {
                 console.log(`Nota de R$${nota}: ${quantidadeDeNotas[i]}`)
             }
         })
@@ -134,13 +134,14 @@ class SuperMercadoProva {
         this.estoque = new EStoque()
         this.pedido = new Pedido()
     }
-    iniciar(){
+
+    iniciar() {
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
         })
 
-        const menu = () =>{
+        const menu = () => {
             console.log("\n========== MENU ==========")
             console.log("1. Mostrar Estoque")
             console.log("2. Adicionar Produto ao Pedido")
@@ -148,8 +149,8 @@ class SuperMercadoProva {
             console.log("4. Finalizar Pedido e Calcular Troco")
             console.log("5. Sair")
             console.log("============================")
-            rl.question("Escolha uma opção: ", opcao =>{
-                switch (parseInt(opcao)){
+            rl.question("Escolha uma opção: ", opcao => {
+                switch (parseInt(opcao)) {
                     case 1:
                         this.estoque.mostrarEstoque()
                         menu()
@@ -157,12 +158,12 @@ class SuperMercadoProva {
                     case 2:
                         rl.question("\nDigite o ID do produto: ", id => {
                             const produto = this.estoque.encontrarProdutoPeloId(parseInt(id))
-                            if(produto){
-                                rl.question("Digite a quantidade: ", quantidade =>{
+                            if (produto) {
+                                rl.question("Digite a quantidade: ", quantidade => {
                                     this.pedido.adicionarItem(produto, parseInt(quantidade))
                                     menu()
                                 })
-                            }else{
+                            } else {
                                 console.log("❌ Produto não encontrado.")
                                 menu()
                             }
@@ -175,7 +176,7 @@ class SuperMercadoProva {
                     case 4:
                         rl.question(`Digite o valor pago pelo cliente: R$`, valorPago => {
                             const troco = this.pedido.calcularTroco(parseInt(valorPago))
-                            if(troco > 0){
+                            if (troco > 0) {
                                 console.log(`Troco a ser devolvido: ${troco.toFixed(2)}`)
                                 this.pedido.calcularMenorQuantidadeDeNotas(troco)
                             }

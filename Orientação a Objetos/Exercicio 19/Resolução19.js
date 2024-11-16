@@ -3,40 +3,40 @@ as interações de adicionar e deletar números. */
 
 // Resolução:
 
-class Contato{
+class Contato {
     constructor(nome, telefone) {
         this.nome = nome;
         this.telefone = telefone;
     }
 }
 
-class AgendaTelefonica{
+class AgendaTelefonica {
     constructor() {
         this.contatos = []
     }
 
-    adicionarContato(nome,telefone){
-        const novoContato = new Contato(nome,telefone)
+    adicionarContato(nome, telefone) {
+        const novoContato = new Contato(nome, telefone)
         this.contatos.push(novoContato)
         console.log(`Contato adicionado: ${nome} - ${telefone}`)
     }
 
-    deletarContato(nome){
+    deletarContato(nome) {
         const indice = this.contatos.findIndex(contato => contato.nome === nome)
-        if(indice !== -1){
-            const contatoRemovido = this.contatos.splice(indice,1)[0]
+        if (indice !== -1) {
+            const contatoRemovido = this.contatos.splice(indice, 1)[0]
             console.log(`Contato removido: ${contatoRemovido.nome} - ${contatoRemovido.telefone}`)
-        }else{
+        } else {
             console.log(`Contato com nome "${nome}" não foi encontrado.`)
         }
     }
 
-    listarContatos(){
+    listarContatos() {
         console.log("\n---------- Listas de Contatos ----------")
-        if(this.contatos.length === 0){
+        if (this.contatos.length === 0) {
             console.log("A agenda está vazia.")
-        }else{
-            this.contatos.forEach((contato,index) =>{
+        } else {
+            this.contatos.forEach((contato, index) => {
                 console.log(`${index + 1}. ${contato.nome} - ${contato.telefone}`)
             })
         }

@@ -19,23 +19,24 @@ function lerTempoSegundos() {
         })
     })
 }
-function obterHoras(segundos){
+
+function obterHoras(segundos) {
     return Math.floor(segundos / 3600)
 }
 
-function obterMinutos(segundos){
+function obterMinutos(segundos) {
     return Math.floor((segundos % 3600) / 60)
 }
 
-function obterSegundos(segundos){
+function obterSegundos(segundos) {
     return segundos % 60
 }
 
-function exibirResultado(horas,minutos,segundos){
+function exibirResultado(horas, minutos, segundos) {
     console.log(`${horas} hr ${minutos} min ${segundos} seg`)
 }
 
-async function converterTempo(){
+async function converterTempo() {
     let tempoSegundos = await lerTempoSegundos()
     let horas = obterHoras(tempoSegundos)
     let minutos = obterMinutos(tempoSegundos)

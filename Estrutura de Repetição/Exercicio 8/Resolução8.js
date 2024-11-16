@@ -9,30 +9,30 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-function pergunta(){
-    return new Promise((resolve) =>{
-        rl.question("Digite um número: ", (input) =>{
+function pergunta() {
+    return new Promise((resolve) => {
+        rl.question("Digite um número: ", (input) => {
             resolve(parseInt(input))
         })
     })
 }
 
-async function lerNumero(){
+async function lerNumero() {
     let numero
 
-    do{
-            numero = await pergunta()
-            if(numero === 10){
-                console.log("-------------------------")
-                console.log("Você digitou 10. O programa foi finalizado. Parabéns!!!")
-                rl.close()
-            }else{
-                console.log("-------------------------")
-                console.log(`Você digitou ${numero}`)
-                console.log("-------------------------")
-            }
+    do {
+        numero = await pergunta()
+        if (numero === 10) {
+            console.log("-------------------------")
+            console.log("Você digitou 10. O programa foi finalizado. Parabéns!!!")
+            rl.close()
+        } else {
+            console.log("-------------------------")
+            console.log(`Você digitou ${numero}`)
+            console.log("-------------------------")
+        }
 
-    }while (numero !== 10)
+    } while (numero !== 10)
 }
 
 lerNumero()

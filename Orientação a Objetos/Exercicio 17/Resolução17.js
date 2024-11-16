@@ -6,14 +6,14 @@ mãe também são do tipo Pessoa. */
 // Resolução:
 
 class Pessoa {
-    constructor(nome,idade,pai= null, mae = null) {
+    constructor(nome, idade, pai = null, mae = null) {
         this.nome = nome
         this.idade = idade
         this.pai = pai
         this.mae = mae
     }
 
-    exibirDetalhes(){
+    exibirDetalhes() {
         console.log(`Nome: ${this.nome}, Idade: ${this.idade}`)
         console.log(`Pai: ${this.pai ? this.pai.nome : "Desconhecido"}`)
         console.log(`Mãe: ${this.mae ? this.mae.nome : "Desconhecida"}`)
@@ -26,7 +26,7 @@ const avoPaterno = new Pessoa("Rodolfo", 76)
 const avoMaterna = new Pessoa("Maria", 70)
 
 const pai = new Pessoa("Roberto", 40, avoPaterno)
-const mae = new Pessoa("Eduarda", 35,null, avoMaterna)
+const mae = new Pessoa("Eduarda", 35, null, avoMaterna)
 
 const filho = new Pessoa("Pedro", 17, pai, mae)
 
