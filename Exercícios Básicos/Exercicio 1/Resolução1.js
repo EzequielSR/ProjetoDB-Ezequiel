@@ -4,7 +4,11 @@
 //Resolução:
 
 function verificarIdade(idade) {
-    return idade >= 18 ? 'Você é maior de idade' : 'Você ainda é menor de idade'
+    if (idade >= 18) {
+        return 'Você é maior de idade';
+    } else {
+        return 'Você ainda é menor de idade';
+    }
 }
 
 // Teste da função
