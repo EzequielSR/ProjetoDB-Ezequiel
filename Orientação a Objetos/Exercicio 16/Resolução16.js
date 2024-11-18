@@ -71,8 +71,7 @@ class Pessoa {
 }
 
 
-// Exemplo de uso:
-
+// Exemplo:
 
 const livro1 = new Livro("Clean Code", "Robert Cecil Martin", "123456")
 const livro2 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "654321")

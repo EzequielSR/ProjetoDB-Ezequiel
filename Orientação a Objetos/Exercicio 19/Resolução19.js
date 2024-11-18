@@ -44,7 +44,7 @@ class AgendaTelefonica {
     }
 }
 
-// Exemplo de Uso:
+// Exemplo :
 
 const minhaAgenda = new AgendaTelefonica()
 

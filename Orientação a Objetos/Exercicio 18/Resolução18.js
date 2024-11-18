@@ -118,7 +118,7 @@ class Guincho extends Automovel {
     }
 }
 
-// Exemplo:
+// Exemplo de automoveis:
 
 console.log("---------- Carro ----------")
 const meuCarro = new CarroAutomatico("Toyota", "Corolla", 2022, 4)

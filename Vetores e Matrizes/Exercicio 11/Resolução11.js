@@ -25,7 +25,7 @@ function bubbleSort(vetor) {
     return vetor
 }
 
-// Gera o vetor e ordena ele
+// Teste:
 
 let vetor = gerarVetorAleatorio(100, 100);
 console.log("Vetor original:", vetor)

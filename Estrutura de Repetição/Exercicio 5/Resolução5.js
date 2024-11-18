@@ -10,5 +10,6 @@ function tabuada(numero) {
     }
 }
 
+// Teste:
 const numero = 70
 tabuada(numero)

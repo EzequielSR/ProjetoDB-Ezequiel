@@ -18,5 +18,6 @@ function fibonacci(n) {
     return series.slice(0, n + 1)
 }
 
+// Teste:
 const numero = 10;
 console.log(fibonacci(numero))
